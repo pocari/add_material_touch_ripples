@@ -12,9 +12,25 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("title"),
         ),
-        body: Center(
-          child: Text("Hello world"),
-        ),
+        body: Center(child: MyButton()),
+      ),
+    );
+  }
+}
+
+class MyButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Scaffold.of(context).showSnackBar(SnackBar(
+          duration: Duration(microseconds: 500),
+          content: Text('Tap'),
+        ));
+      },
+      child: Container(
+        padding: EdgeInsets.all(12.0),
+        child: Text('Flat button2'),
       ),
     );
   }
